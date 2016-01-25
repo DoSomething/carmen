@@ -1,0 +1,27 @@
+{
+  "id": "1",
+  "first_name": "Diego",
+  "last_name": "Lorenzo",
+  "title": "Senior Software Engineer",
+  "department": "technology",
+  "start_date": "2014-03-18T00:00:00-00:00",  // ISO-8601
+  "end_date": NULL,
+  "sabbaticals": [
+    {
+      "id": "12",
+      "date": "2016-03-18T00:00:00-00:00",
+      "location": {
+        "latitude": 35.711814,
+        "longitude": 139.733734,
+        "city": "Tokyo",
+        "country": "Japan"
+      },
+      "company": "Some Anime Not-For-Profit Company",
+      "contact": {
+        "first_name": "Tetsuo",
+        "last_name": "Shima",
+        "email": "tetsuo@akira.jp"
+      }
+    }
+  ]
+}
