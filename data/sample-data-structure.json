@@ -16,7 +16,10 @@
         "city": "Tokyo",
         "country": "Japan"
       },
-      "company": "Some Anime Not-For-Profit Company",
+      "organization": {
+        "title": "Some Anime Not-For-Profit Company",
+        "website": "http://someanimenfp.org",
+      },
       "contact": {
         "first_name": "Tetsuo",
         "last_name": "Shima",
