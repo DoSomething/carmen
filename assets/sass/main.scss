@@ -1,0 +1,19 @@
+// Primary DoSomething Colors
+$blue: #23b7fb;
+$purple: #4e2b63;
+$yellow: #fcd116;
+
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: $purple;
+  margin: 0;
+  padding: 0;
+}
+
+#map {
+  height: 100%;
+}
