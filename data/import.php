@@ -1,11 +1,10 @@
 <?php
 /**
  * This imports the data from the tsv file
- * To run locally, head to localhost:1234/data/import.php
+ * To run locally, head to localhost:1234/data/import.php?debug=true|false
  */
 
-$debug = false;
-
+$debug = $_GET["debug"] ? $_GET["debug"] : true;
 
 $staff = [];
 $staffIndex = 0;
@@ -57,7 +56,7 @@ foreach ($rows as $index => $row) {
 $response = json_encode($staff);
 
 
-if ($debug) {
+if (isset($debug) && $debug != 'false') {
   // Return JSON response for viewing in browser:
   // Set up a quick server via terminal in project directory using: php -S localhost:1234
   // Then head to http://localhost:1234/data/import.php in browser.
