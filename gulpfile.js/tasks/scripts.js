@@ -17,7 +17,7 @@ var config     = require('../config').browserify;
 
 function buildScript(file, watch) {
 
-  config['transform'] = [babelify.configure({ presets: ["stage-0"] })];
+  config['transform'] = [babelify.configure({ presets: ["stage-0", "react"] })];
 
   var bundler = watch ? watchify(browserify(config)) : browserify(config);
 

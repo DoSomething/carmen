@@ -17,6 +17,7 @@
   "homepage": "https://github.com/DoSomething/carmen#readme",
   "devDependencies": {
     "babel": "^6.5.1",
+    "babel-preset-react": "^6.5.0",
     "babel-preset-stage-0": "^6.5.0",
     "babelify": "^7.2.0",
     "browser-sync": "^2.11.1",
