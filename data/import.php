@@ -1,6 +1,10 @@
 <?php
+/**
+ * This imports the data from the tsv file
+ * To run locally, head to localhost:1234/data/import.php
+ */
 
-$debug = true;
+$debug = false;
 
 
 $staff = [];
@@ -26,14 +30,14 @@ foreach ($rows as $index => $row) {
 
   if (!$employeeIndex) {
     $employee = (object) [];
-  
+
     $employee->id = $staffIndex;
     $employee->first_name = first($staffData[1], ' ');
     $employee->last_name = last($staffData[1], ' ');
     $employee->title = NULL;
     $employee->department = NULL;
     $employee->start_date = NULL;
-    $employee->end_date = NULL;  
+    $employee->end_date = NULL;
   }
   else {
     $employee = $staff[$employeeIndex];
@@ -43,7 +47,7 @@ foreach ($rows as $index => $row) {
 
 
   if (!$employeeIndex) {
-    $staff[] = $employee;  
+    $staff[] = $employee;
 
     $staffIndex++;
   }
@@ -61,8 +65,8 @@ if ($debug) {
   echo $response;
 }
 else {
-  $fileLocation =  __DIR__.'/../sabbaticals.json';
-  
+  $fileLocation =  __DIR__.'/../assets/js/sabbaticals.json';
+
   // Export JSON data to a file.
   file_put_contents($fileLocation, $response);
 }
@@ -100,20 +104,20 @@ function setSabbaticalData($data) {
 
   $sabbatical->date = $data[7];
   $sabbatical->location = [
-    'latitude' => NULL,
-    'longitude' => NULL,
+    'latitude' => $data[3],
+    'longitude' => $data[4],
     'city' => first($data[2]),
     'country' => last($data[2]),
   ];
   $sabbatical->organization = [
-    'title' => $data[3],
-    'website' => $data[6],
+    'title' => $data[5],
+    'website' => $data[8],
   ];
   $sabbatical->contact = [
-    'name' => $data[4],
-    'email' => $data[5],
+    'name' => $data[6],
+    'email' => $data[7],
   ];
-  $sabbatical->description = $data[8];
+  $sabbatical->description = $data[10];
 
   return $sabbatical;
 }
@@ -123,7 +127,7 @@ function staffExists(array $staff, $lastName) {
   foreach ($staff as $index => $employee) {
     if ($employee->last_name === $lastName) {
       return $index;
-    }  
+    }
   }
 
   return FALSE;
