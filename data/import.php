@@ -2,6 +2,8 @@
 /**
  * This imports the data from the tsv file
  * To run locally, head to localhost:1234/data/import.php?debug=true|false
+ * Or, cd into data and run
+ * ➝  php import.php
  */
 
 $debug = isset($_GET["debug"]) ? $_GET["debug"] : false;
