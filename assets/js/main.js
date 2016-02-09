@@ -11,7 +11,7 @@ var ReactDom = require('react-dom');
 
 var dosomething = [40.741023, -73.991770];
 var map = L.map('map').setView(dosomething, 10);
-
+console.log(data);
 
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
