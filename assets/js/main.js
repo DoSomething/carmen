@@ -1,8 +1,13 @@
 'use strict';
 
-var config = require('./config');
-var L      = require('leaflet');
+var data     = require('./sabbaticals');
+var config   = require('./config');
+var L        = require('leaflet');
+var React    = require('react');
+var ReactDom = require('react-dom');
 
+
+// @TODO: eventually clean this file up and set up as app bootstrap.
 
 var dosomething = [40.741023, -73.991770];
 var map = L.map('map').setView(dosomething, 10);
@@ -20,3 +25,18 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 L.Icon.Default.imagePath = config.leaflet.imagePath;
 
 var marker = L.marker(dosomething).addTo(map);
+
+
+
+// Testing use of React components:
+var Sabbatical = React.createClass({
+  render: function() {
+    return (
+      <section className="sabbatical">
+        <p>Hi, I'm a react component.</p>
+      </section>
+    )
+  }
+});
+
+ReactDom.render(<Sabbatical/>, document.getElementById('interface'));
