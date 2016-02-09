@@ -30,9 +30,7 @@ L.Icon.Default.imagePath = config.leaflet.imagePath;
 var latslongs = [];
 for (var i = 0; i < data.length; i++) {
   // This only deals with the first sabbatical for now.
-  var lat =  data[i].sabbaticals[0].location.latitude;
-  var long =  data[i].sabbaticals[0].location.longitude;
-  latslongs[i] = [lat, long];
+  latslongs[i] = [data[i].sabbaticals[0].location.latitude, data[i].sabbaticals[0].location.longitude];
   L.marker(latslongs[i]).addTo(map);
 
 }
