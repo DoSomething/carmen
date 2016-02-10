@@ -12,8 +12,7 @@ $staff = [];
 $staffIndex = 0;
 $sabbaticalIndex = 0;
 
-
-$sabbaticalDataFile = file_get_contents('sabbaticals.tsv');
+$sabbaticalDataFile = file_get_contents(__DIR__ . '/sabbaticals.tsv');
 $rows = explode("\n", $sabbaticalDataFile);
 
 
@@ -66,7 +65,7 @@ if (isset($debug) && $debug != false) {
   echo $response;
 }
 else {
-  $fileLocation =  __DIR__.'/../assets/js/sabbaticals.json';
+  $fileLocation =  __DIR__ . '/../assets/js/sabbaticals.json';
 
   // Export JSON data to a file.
   file_put_contents($fileLocation, $response);
