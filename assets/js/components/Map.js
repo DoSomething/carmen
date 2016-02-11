@@ -2,22 +2,28 @@
 
 var React    = require('react');
 var ReactDOM = require('react-dom');
-var L        = require('leaflet');
+var Leaflet  = require('leaflet');
 var config   = require('./MapConfig');
+
+Leaflet.Icon.Default.imagePath = config.leaflet.imagePath;
 
 
 var Map = React.createClass({
 
   getInitialState: function() {
     return {
-      tileLayer: null
+      map: null,
+      tileLayer: null,
+      markers: []
     }
   },
 
   componentDidMount: function() {
     var mapId = this.getComponentId();
 
-    this.init(mapId)
+    this.init(mapId);
+
+    var marker = Leaflet.marker(config.locations.dosomething).addTo(this.state.map);
   },
 
   getComponentId: function() {
@@ -25,9 +31,9 @@ var Map = React.createClass({
   },
 
   init: function(id) {
-    let map = L.map(id, config.params);
+    this.state.map = Leaflet.map(id, config.params);
 
-    this.state.tileLayer = L.tileLayer(config.tileLayer.uri, config.tileLayer.params).addTo(map);
+    this.state.tileLayer = Leaflet.tileLayer(config.tileLayer.uri, config.tileLayer.params).addTo(this.state.map);
 
     this.setState({
       tileLayer: this.state.tileLayer
