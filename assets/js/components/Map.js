@@ -40,6 +40,10 @@ var Map = React.createClass({
     }
   },
 
+  componentWillUnmount: function() {
+    // clean up steps to run when unmounting...
+  },
+
   getComponentId: function() {
     return this.refs.mapId;
   },
