@@ -1,5 +1,5 @@
 /**
- * Configuration settings for app.
+ * General configuration settings for application.
  */
 
 module.exports = {
@@ -9,5 +9,9 @@ module.exports = {
 
   leaflet: {
     imagePath: '/node_modules/leaflet/dist/images'
+  },
+
+  locations: {
+    dosomething: ['40.741023', '-73.991770']
   }
 };
