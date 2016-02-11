@@ -18,7 +18,7 @@ module.exports = {
       for(var j = 0; j < sabbaticalsCount; j++) {
         var sabbatical = data[i].sabbaticals[j];
 
-        coordinates[index] = sabbatical.location;
+        coordinates[index] = [sabbatical.location.latitude, sabbatical.location.longitude];
 
         index++;
       }

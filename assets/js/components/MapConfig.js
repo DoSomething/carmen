@@ -19,7 +19,7 @@ module.exports = {
     zoomControl: true,
     zoom: 10,
     maxZoom: 20,
-    minZoom: 2,
+    minZoom: 3,
     scrollWheelZoom: false,
     legends: true,
     infoControl: false,

@@ -36,7 +36,7 @@ var Map = React.createClass({
     var coordinates = util.getCoordinates();
 
     for (var i = 0, total = coordinates.length; i < total; i++) {
-      Leaflet.marker([coordinates[i].latitude, coordinates[i].longitude]).addTo(this.state.map);
+      Leaflet.marker(coordinates[i]).addTo(this.state.map);
     }
   },
 
