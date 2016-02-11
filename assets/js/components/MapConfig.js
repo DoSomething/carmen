@@ -1,7 +1,6 @@
 /**
  * Configuration settings for <Map/>
  */
-
 var dosomething = ['40.741023', '-73.991770'];
 
 
@@ -18,9 +17,9 @@ module.exports = {
   params: {
     center: dosomething,
     zoomControl: true,
-    zoom: 13,
+    zoom: 10,
     maxZoom: 20,
-    minZoom: 10,
+    minZoom: 2,
     scrollWheelZoom: false,
     legends: true,
     infoControl: false,

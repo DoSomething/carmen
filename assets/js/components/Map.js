@@ -4,6 +4,7 @@ var React    = require('react');
 var ReactDOM = require('react-dom');
 var Leaflet  = require('leaflet');
 var config   = require('./MapConfig');
+var util     = require('../utilities');
 
 Leaflet.Icon.Default.imagePath = config.leaflet.imagePath;
 
@@ -14,7 +15,7 @@ var Map = React.createClass({
     return {
       map: null,
       tileLayer: null,
-      markers: []
+      markers: {}  // or []?
     }
   },
 
@@ -23,7 +24,20 @@ var Map = React.createClass({
 
     this.init(mapId);
 
-    var marker = Leaflet.marker(config.locations.dosomething).addTo(this.state.map);
+    // @TODO: sample code, move out of here!
+    // var marker = Leaflet.marker(config.locations.dosomething).addTo(this.state.map);
+    // marker.bindPopup("<section><h1>Welcome!</h1><br><p>This is the DoSomething Staff Sabbatical Map</p></section>").openPopup();
+
+    // var popup = Leaflet.popup()
+    //   .setLatLng(config.locations.dosomething)
+    //   .setContent('<p>Hello world!<br />This is a nice popup.</p>')
+    //   .openOn(this.state.map);
+
+    var coordinates = util.getCoordinates();
+
+    for (var i = 0, total = coordinates.length; i < total; i++) {
+      Leaflet.marker([coordinates[i].latitude, coordinates[i].longitude]).addTo(this.state.map);
+    }
   },
 
   getComponentId: function() {
