@@ -102,7 +102,7 @@ function getValue($data) {
 function setSabbaticalData($data) {
   $sabbatical = (object) [];
 
-  $sabbatical->date = $data[7];
+  $sabbatical->date = $data[9];
   $sabbatical->location = [
     'latitude' => $data[3],
     'longitude' => $data[4],

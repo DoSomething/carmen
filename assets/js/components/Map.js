@@ -6,10 +6,13 @@ var Leaflet  = require('leaflet');
 var config   = require('./MapConfig');
 var util     = require('../utilities');
 
+
 Leaflet.Icon.Default.imagePath = config.leaflet.imagePath;
 
 
 var Map = React.createClass({
+
+  markerIndex: 0,
 
   getInitialState: function() {
     return {
@@ -33,11 +36,21 @@ var Map = React.createClass({
     //   .setContent('<p>Hello world!<br />This is a nice popup.</p>')
     //   .openOn(this.state.map);
 
-    var coordinates = util.getCoordinates();
+    // var coordinates = util.getCoordinates();
 
-    for (var i = 0, total = coordinates.length; i < total; i++) {
-      Leaflet.marker(coordinates[i]).addTo(this.state.map);
+    // for (var i = 0, total = coordinates.length; i < total; i++) {
+    //   Leaflet.marker(coordinates[i]).addTo(this.state.map);
+    // }
+
+
+    var data = util.getData();
+
+    Leaflet.marker(config.locations.dosomething).addTo(this.state.map); // @TODO: use custom icon with DS logo
+
+    for (var i = 0, total = data.length; i < total; i++) {
+      this.setMarker(data[i]);
     }
+
   },
 
   componentWillUnmount: function() {
@@ -56,6 +69,53 @@ var Map = React.createClass({
     this.setState({
       tileLayer: this.state.tileLayer
     });
+  },
+
+  setMarker: function(data) {
+    for (var i = 0, total = data.sabbaticals.length; i < total; i++) {
+      console.log(data);
+
+      var sabbatical = data.sabbaticals[i];
+      var latitude = sabbatical.location.latitude;
+      var longitude = sabbatical.location.longitude;
+
+      this.state.markers[this.markerIndex] = Leaflet.marker([latitude, longitude]).addTo(this.state.map);
+
+      this.state.markers[this.markerIndex].bindPopup(
+        `
+        <section class="sabbatical">
+          <h1>${data.first_name} ${data.last_name}</h1>
+          <div class="info">
+            <div class="location">
+              ${sabbatical.location.city}, ${sabbatical.location.country} <span class="date">${sabbatical.date}</span>
+            </div>
+
+            <div class="block organization">
+              <strong>Organization:</strong>
+              <h2>${sabbatical.organization.title}</h2>
+              <p><a href="${sabbatical.organization.website}" target="_blank">${sabbatical.organization.website}</a></p>
+            </div>
+
+            <div class="block description">
+              <strong>What ${data.first_name} did:</strong>
+              <blockquote>
+                <p>${sabbatical.description}</p>
+              </blockquote>
+            </div>
+
+            <div class="block contact">
+              <strong>Contact:</strong>
+              <p>${sabbatical.contact.name}</p>
+              <p>${sabbatical.contact.email}</p>
+            </div>
+          </div>
+        </section>
+        `
+      );
+
+      this.markerIndex++;
+    }
+
   },
 
   render: function() {
