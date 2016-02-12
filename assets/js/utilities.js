@@ -8,7 +8,6 @@ var data = require('./sabbaticals');
 module.exports = {
 
   getCoordinates: function() {
-    // Get all the markers from the sabbaticals json.
     var coordinates = [];
     var index = 0;
 
@@ -25,6 +24,10 @@ module.exports = {
     }
 
     return coordinates;
+  },
+
+  getData: function() {
+    return data;
   }
 
 };

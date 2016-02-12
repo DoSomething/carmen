@@ -33,9 +33,90 @@ body {
   width: 100%;
 }
 
-.sabbatical {
-  background-color: fuchsia;
-  display: table;
-  margin: 0 auto;
-  padding: 10px;
+.leaflet-popup-content-wrapper {
+  background-color: rgba(255,255,255,0.9);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0
 }
+
+.leaflet-popup-content {
+  margin: 0
+}
+
+.leaflet-popup-tip-container {
+
+}
+
+.leaflet-popup-tip {
+  background: transparent;
+  border-left:15px solid transparent;
+  border-right:15px solid transparent;
+  border-top:15px solid rgba(255,255,255,0.9);
+  box-shadow: none;
+  height: 0;
+  margin: 0 auto;
+  transform: none;
+  width: 0;
+}
+
+.sabbatical {
+  h1 {
+    background-color: $purple;
+    color: #fff;
+    font-size: 22px;
+    margin: 0;
+    padding: 10px;
+  }
+
+  .info {
+    font-size: 12px; // @TODO: kinda small but need to force popup to be wider by using Leaflet custom popup
+    padding: 20px 10px;
+
+    p {
+      margin: 0;
+    }
+
+    p + p {
+      margin-bottom: 12px;
+    }
+
+    blockquote {
+      color: #999;
+      font-style: italic;
+      margin: 0;
+      padding: 0 10px;
+    }
+  }
+
+  .block + .block {
+    border-top : 1px solid #ccc;
+    margin-top: 15px;
+    padding-top: 15px;
+  }
+
+  .block {
+    strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+  }
+
+  .location {
+    margin-bottom: 20px;
+    overflow: auto;
+
+    .date {
+      color: #999;
+      float: right;
+      font-style: italic;
+    }
+  }
+
+  .organization {
+    h2 {
+      margin: 0 0 5px;
+    }
+  }
+}
+
