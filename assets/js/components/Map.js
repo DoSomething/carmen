@@ -72,49 +72,49 @@ var Map = React.createClass({
   },
 
   setMarker: function(data) {
-    for (var i = 0, total = data.sabbaticals.length; i < total; i++) {
-      console.log(data);
+    // for (var i = 0, total = data.sabbaticals.length; i < total; i++) {
+    //   console.log(data);
 
-      var sabbatical = data.sabbaticals[i];
-      var latitude = sabbatical.location.latitude;
-      var longitude = sabbatical.location.longitude;
+    //   var sabbatical = data.sabbaticals[i];
+    //   var latitude = sabbatical.location.latitude;
+    //   var longitude = sabbatical.location.longitude;
 
-      this.state.markers[this.markerIndex] = Leaflet.marker([latitude, longitude]).addTo(this.state.map);
+    //   this.state.markers[this.markerIndex] = Leaflet.marker([latitude, longitude]).addTo(this.state.map);
 
-      this.state.markers[this.markerIndex].bindPopup(
-        `
-        <section class="sabbatical">
-          <h1>${data.first_name} ${data.last_name}</h1>
-          <div class="info">
-            <div class="location">
-              ${sabbatical.location.city}, ${sabbatical.location.country} <span class="date">${sabbatical.date}</span>
-            </div>
+    //   this.state.markers[this.markerIndex].bindPopup(
+    //     `
+    //     <section class="sabbatical">
+    //       <h1>${data.first_name} ${data.last_name}</h1>
+    //       <div class="info">
+    //         <div class="location">
+    //           ${sabbatical.location.city}, ${sabbatical.location.country} <span class="date">${sabbatical.date}</span>
+    //         </div>
 
-            <div class="block organization">
-              <strong>Organization:</strong>
-              <h2>${sabbatical.organization.title}</h2>
-              <p><a href="${sabbatical.organization.website}" target="_blank">${sabbatical.organization.website}</a></p>
-            </div>
+    //         <div class="block organization">
+    //           <strong>Organization:</strong>
+    //           <h2>${sabbatical.organization.title}</h2>
+    //           <p><a href="${sabbatical.organization.website}" target="_blank">${sabbatical.organization.website}</a></p>
+    //         </div>
 
-            <div class="block description">
-              <strong>What ${data.first_name} did:</strong>
-              <blockquote>
-                <p>${sabbatical.description}</p>
-              </blockquote>
-            </div>
+    //         <div class="block description">
+    //           <strong>What ${data.first_name} did:</strong>
+    //           <blockquote>
+    //             <p>${sabbatical.description}</p>
+    //           </blockquote>
+    //         </div>
 
-            <div class="block contact">
-              <strong>Contact:</strong>
-              <p>${sabbatical.contact.name}</p>
-              <p>${sabbatical.contact.email}</p>
-            </div>
-          </div>
-        </section>
-        `
-      );
+    //         <div class="block contact">
+    //           <strong>Contact:</strong>
+    //           <p>${sabbatical.contact.name}</p>
+    //           <p>${sabbatical.contact.email}</p>
+    //         </div>
+    //       </div>
+    //     </section>
+    //     `
+    //   );
 
-      this.markerIndex++;
-    }
+    //   this.markerIndex++;
+    // }
 
   },
 
