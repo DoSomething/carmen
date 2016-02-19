@@ -114,8 +114,8 @@ function setSabbaticalData($data) {
     'website' => $data[8],
   ];
   $sabbatical->contact = [
-    'name' => $data[6],
-    'email' => $data[7],
+    'name' => NULL, //$data[6],
+    'email' => NULL, // $data[7],
   ];
   $sabbatical->description = $data[10];
 

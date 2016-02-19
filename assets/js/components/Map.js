@@ -73,7 +73,6 @@ var Map = React.createClass({
 
   setMarker: function(data) {
     for (var i = 0, total = data.sabbaticals.length; i < total; i++) {
-      console.log(data);
 
       var sabbatical = data.sabbaticals[i];
       var latitude = sabbatical.location.latitude;
@@ -103,12 +102,7 @@ var Map = React.createClass({
               </blockquote>
             </div>
 
-            <div class="block contact">
-              <strong>Contact:</strong>
-              <p>${sabbatical.contact.name}</p>
-              <p>${sabbatical.contact.email}</p>
-            </div>
-          </div>
+
         </section>
         `
       );
