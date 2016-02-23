@@ -65,7 +65,7 @@ var Map = React.createClass({
 
         </section>
         `
-    );
+    ).openPopup();
 
     for (var i = 0, total = data.length; i < total; i++) {
       this.setMarker(data[i]);

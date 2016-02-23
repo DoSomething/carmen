@@ -17,10 +17,10 @@ module.exports = {
   params: {
     center: dosomething,
     zoomControl: true,
-    zoom: 10,
+    zoom: 6,
     maxZoom: 20,
     minZoom: 3,
-    scrollWheelZoom: false,
+    scrollWheelZoom: true,
     legends: true,
     infoControl: false,
     attributionControl: true
