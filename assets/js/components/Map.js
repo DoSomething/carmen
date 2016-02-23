@@ -45,7 +45,27 @@ var Map = React.createClass({
 
     var data = util.getData();
 
-    Leaflet.marker(config.locations.dosomething).addTo(this.state.map); // @TODO: use custom icon with DS logo
+    var dosomething = Leaflet.marker(config.locations.dosomething).addTo(this.state.map);
+    dosomething.bindPopup(
+      `
+        <section class="sabbatical">
+          <h1>DoSomething.org HQ</h1>
+          <div class="info">
+            <div class="location">
+              New York, New York
+            </div>
+
+            <div class="block description">
+              <strong>What DoSomething did:</strong>
+              <blockquote>
+                <p>18 employees have taken a month off to volunteer all over the world. Zoom out to see!</p>
+              </blockquote>
+            </div>
+
+
+        </section>
+        `
+    );
 
     for (var i = 0, total = data.length; i < total; i++) {
       this.setMarker(data[i]);
