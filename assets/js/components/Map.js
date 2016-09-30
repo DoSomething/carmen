@@ -58,7 +58,7 @@ var Map = React.createClass({
             <div class="block description">
               <strong>What DoSomething did:</strong>
               <blockquote>
-                <p>18 employees have taken a month off to volunteer all over the world. Zoom out to see!</p>
+                <p>20 employees have taken a month off to volunteer all over the world. Zoom out to see!</p>
               </blockquote>
             </div>
 
